@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>select 颜色设置</title>
+		<script src="../plugin/jquery/jquery.js"></script>
+	</head>
+		<select></select>
+	<body>
+		
+		
+		
+		
+		<script>
+			
+			var str="";
+			for(var i=0; i<6; i++) {
+				str+= '<option>' + (i+1) + '</option>';
+			}
+			$("select").html(str);
+			
+			var unSelected = "#999";
+			var selected = "black";
+			//设置没选中之前的颜色
+			$("select").css("color", unSelected);
+			$("select").change(function() {
+				//点击标签之后,把option的颜色重置为黑色
+				$("select").css("color", selected);
+				var selItem = $(this).val();
+				//比较直，如果是第一项，则改为未选中颜色，否则改为选中颜色
+				if(selItem == $(this).find('option:first').val()) {
+					$(this).css("color", unSelected);
+
+				} else {
+					$(this).css("color", selected);
+
+				}
+			});
+			
+			$('option').css('color', selected);
+			
+			
+			
+		</script>
+	</body>
+
+</html>
